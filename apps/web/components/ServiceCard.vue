@@ -1,2 +1,2 @@
-<script setup lang="ts">defineProps<{service:any}>(); const {lang,local}=useLocale()</script>
+<script setup lang="ts">defineProps<{service:any}>(); const {lang,local}=useLocale();</script>
 <template><NuxtLink :to="local(`/services/${service.code}`)" class="catalog-card"><img :src="`/images/services/${service.code}.webp`" width="36" height="36" loading="lazy" :alt="lang==='ru'?service.nameRu:service.nameEn"><span><b>{{lang==='ru'?service.nameRu:service.nameEn}}</b><small>{{service.code.toUpperCase()}}</small></span><i>→</i></NuxtLink></template>

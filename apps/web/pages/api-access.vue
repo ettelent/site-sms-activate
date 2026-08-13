@@ -2,10 +2,10 @@
 const { lang } = useLocale()
 
 usePageSeo(
-  computed(() => lang.value === 'ru' ? 'API для работы с виртуальными номерами' : 'Virtual number API'),
+  computed(() => lang.value === 'ru' ? 'API виртуальных номеров и каталога SMS-сервисов' : 'Virtual number and SMS service catalog API'),
   computed(() => lang.value === 'ru'
-    ? 'Возможности API, автоматизация, лимиты и порядок получения доступа.'
-    : 'API capabilities, automation, limits, and access instructions.')
+    ? 'API каталога виртуальных номеров, стран и SMS-сервисов: автоматизация, JSON-ответы, лимиты, безопасность и порядок получения доступа.'
+    : 'Virtual number, country, and SMS service catalog API: automation, JSON responses, limits, security, and access instructions.')
 )
 
 const capabilities = computed(() => lang.value === 'ru' ? [

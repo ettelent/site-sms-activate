@@ -1,2 +1,37 @@
-<script setup lang="ts">defineProps<{subject:string,type:'country'|'service'}>(); const {lang}=useLocale()</script>
-<template><section class="seo-copy"><h2>{{lang==='ru'?`Как пользоваться каталогом ${subject}`:`How to use the ${subject} catalog`}}</h2><div v-if="lang==='ru'"><p>Публичные временные номера помогают изучить формат получения одноразовых кодов без установки дополнительного приложения. Выберите карточку выше, откройте ленту и найдите сообщение по названию отправителя. Страница обновляется автоматически, поэтому старые позиции уступают место новым.</p><p>Помните, что открытый номер видят другие посетители. Не связывайте его с личным профилем, банковским кабинетом, платёжной системой или аккаунтом, который планируете использовать долго. Для персонального сценария переходите к приватному предложению.</p></div><div v-else><p>Public temporary numbers help you explore one-time-code workflows without installing another app. Choose a card above, open its feed, and find a message by sender name. The page refreshes automatically, allowing older entries to make way for new ones.</p><p>Remember that other visitors can see a public number. Do not connect it to a personal profile, bank, payment service, or an account you intend to keep. Choose the private offer for a personal workflow.</p></div></section></template>
+<script setup lang="ts">
+defineProps<{ subject: string, type: 'country' | 'service' }>()
+const { lang } = useLocale()
+</script>
+
+<template>
+  <section class="seo-copy">
+    <h2>{{ lang === 'ru'
+      ? type === 'country' ? `Как выбрать временный номер: ${subject}` : `Как работает SMS-верификация для ${subject}`
+      : type === 'country' ? `How to choose a temporary ${subject} number` : `How SMS verification works for ${subject}` }}</h2>
+
+    <template v-if="lang === 'ru' && type === 'country'">
+      <h3>Телефонный код и формат номера</h3>
+      <p>Виртуальный номер {{ subject }} использует международный код выбранной страны и привычный для региона формат телефона. Перед началом проверьте, поддерживает ли нужное приложение это направление. Некоторые платформы ограничивают регистрацию по географии или предлагают разные способы подтверждения личности.</p>
+      <h3>Как найти SMS-код</h3>
+      <p>Откройте карточку номера и найдите сообщение по названию отправителя. Код подтверждения обычно состоит из четырёх–восьми цифр и действует ограниченное время. Не запрашивайте его много раз подряд: внешний сервис может включить временное ограничение на повторную отправку.</p>
+      <h3>Безопасность публичного номера</h3>
+      <p>Открытый временный номер и его лента доступны другим посетителям. Не связывайте его с банковским кабинетом, платёжной системой, государственной услугой, основной почтой или профилем, который нужно сохранить. Представленные номера и сообщения симулируются и иллюстрируют интерфейс, а не гарантируют реальную доставку SMS.</p>
+    </template>
+
+    <template v-else-if="lang === 'ru'">
+      <h3>Код подтверждения для {{ subject }}</h3>
+      <p>SMS-верификация помогает сервису проверить, что пользователь контролирует указанный номер телефона. После выбора страны приложение может отправить одноразовый цифровой код. Его вводят в форме регистрации или авторизации до окончания срока действия.</p>
+      <h3>Выбор страны и повторный запрос</h3>
+      <p>Доступные направления зависят от правил {{ subject }}. Если код не приходит, проверьте телефонный формат, регион, лимит повторных запросов и возможный альтернативный способ входа. Частая отправка может активировать защиту от автоматических регистраций.</p>
+      <h3>Публичный или приватный номер</h3>
+      <p>Публичная SMS-лента подходит только для знакомства с форматом сервиса. Она видна всем и является симуляцией. Для личного аккаунта, восстановления пароля, оплаты или долгосрочного доступа используйте собственный телефон либо выделенный приватный номер.</p>
+    </template>
+
+    <template v-else>
+      <h3>Number format and verification code</h3>
+      <p>A virtual number follows the selected country’s calling code and phone format. Check whether {{ subject }} supports the destination before requesting a one-time verification code.</p>
+      <h3>Public number safety</h3>
+      <p>Other visitors can see a public feed. Never connect it to banking, payments, government services, primary email, password recovery, or an account you need to keep. The displayed feed is simulated and does not guarantee real SMS delivery.</p>
+    </template>
+  </section>
+</template>

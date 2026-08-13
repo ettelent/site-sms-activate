@@ -10,11 +10,18 @@ export default defineNuxtConfig({
     public: {
       siteUrl: process.env.PUBLIC_SITE_URL || 'http://localhost:3000',
       gaId: process.env.NUXT_PUBLIC_GA_ID || '',
-      yandexMetrikaId: process.env.NUXT_PUBLIC_YANDEX_METRIKA_ID || ''
+      yandexMetrikaId: process.env.NUXT_PUBLIC_YANDEX_METRIKA_ID || '',
+      googleSiteVerification: process.env.NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
+      yandexVerification: process.env.NUXT_PUBLIC_YANDEX_VERIFICATION || ''
     }
   },
   site: { url: process.env.PUBLIC_SITE_URL || 'http://localhost:3000', name: 'Signal SMS' },
   sitemap: { sources: ['/api/__sitemap__/urls'] },
-  nitro: { routeRules: { '/images/**': { headers: { 'cache-control': 'public, max-age=2592000, immutable' } } } },
-  app: { head: { htmlAttrs: { lang: 'ru' }, meta: [{ name: 'theme-color', content: '#081411' }], link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }] } }
+  routeRules: { '/images/**': { headers: { 'cache-control': 'public, max-age=2592000, immutable' } } },
+  app: { head: { htmlAttrs: { lang: 'ru' }, meta: [
+    { name: 'theme-color', content: '#081411' },
+    { name: 'format-detection', content: 'telephone=no' },
+    { name: 'google-site-verification', content: process.env.NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '' },
+    { name: 'yandex-verification', content: process.env.NUXT_PUBLIC_YANDEX_VERIFICATION || '' }
+  ], link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }] } }
 })

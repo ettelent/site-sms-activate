@@ -3,7 +3,7 @@ export default defineEventHandler(event => {
   const legacy = path.match(/^\/(ru|en)(?=\/|$)/)
   if (!legacy) return
 
-  setCookie(event, 'signal_locale', legacy[1], {
+  setCookie(event, 'signal_locale', legacy[1]!, {
     sameSite: 'lax',
     maxAge: 60 * 60 * 24 * 365,
     path: '/'

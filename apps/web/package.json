@@ -4,5 +4,5 @@
   "type": "module",
   "scripts": { "dev": "node scripts/dev.mjs", "build": "nuxt build", "typecheck": "nuxt typecheck", "start": "node .output/server/index.mjs" },
   "dependencies": { "@nuxtjs/sitemap": "7.4.3", "nuxt": "4.0.3", "vue": "3.5.18" },
-  "devDependencies": { "typescript": "5.9.2", "vue-tsc": "3.0.4" }
+  "devDependencies": { "@types/node": "^24.0.0", "typescript": "5.9.2", "vue-tsc": "3.0.4" }
 }

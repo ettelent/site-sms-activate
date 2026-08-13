@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a1713"/>
+  <circle cx="1020" cy="90" r="310" fill="#587600" opacity=".35"/>
+  <rect x="82" y="82" width="74" height="62" rx="18" fill="#caff3f"/>
+  <circle cx="105" cy="113" r="5" fill="#0a1713"/><circle cx="119" cy="113" r="5" fill="#0a1713"/><circle cx="133" cy="113" r="5" fill="#0a1713"/>
+  <text x="178" y="128" fill="#fff" font-family="Arial,sans-serif" font-size="48" font-weight="700">signal<tspan fill="#caff3f">sms</tspan></text>
+  <text x="82" y="295" fill="#fff" font-family="Arial,sans-serif" font-size="72" font-weight="700">Временные номера</text>
+  <text x="82" y="380" fill="#fff" font-family="Arial,sans-serif" font-size="72" font-weight="700">для приёма SMS онлайн</text>
+  <text x="86" y="470" fill="#aebbb5" font-family="Arial,sans-serif" font-size="30">195 стран · 800+ сервисов · RU / EN</text>
+</svg>
