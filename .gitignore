@@ -1,0 +1,13 @@
+node_modules/
+node_modules.incomplete/
+.node_modules_web_incomplete/
+package-lock.incomplete.json
+.nuxt/
+.output/
+dist/
+.env
+*.log
+.runlogs/
+.web_modules_stale_*/
+.web_lock_stale_*.json
+.DS_Store

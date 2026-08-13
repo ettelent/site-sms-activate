@@ -1,0 +1,2 @@
+<script setup lang="ts">withDefaults(defineProps<{medium?:string}>(),{medium:'premium_card'}); const {t,lang}=useLocale()</script>
+<template><aside class="premium-banner"><div><span class="eyebrow"><i></i>Premium route</span><h2>{{t.noSms}}</h2><p>{{t.noSmsText}}</p></div><a :href="`/api/go/${medium}?lang=${lang}`" rel="nofollow sponsored noopener" class="button">{{t.getPremium}} →</a></aside></template>

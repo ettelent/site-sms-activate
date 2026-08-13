@@ -1,0 +1,15 @@
+{
+  "name": "signal-sms-platform",
+  "private": true,
+  "type": "module",
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c magenta,cyan \"npm:dev -w @signal/api\" \"npm:dev -w @signal/web\"",
+    "build": "npm run build -w @signal/api && npm run build -w @signal/web",
+    "typecheck": "npm run typecheck -w @signal/api && npm run typecheck -w @signal/web",
+    "start": "concurrently -n API,WEB \"npm:start -w @signal/api\" \"npm:start -w @signal/web\"",
+    "db:seed": "npm run db:seed -w @signal/api"
+  },
+  "devDependencies": { "concurrently": "^9.2.0" },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,2 @@
+<script setup lang="ts">defineProps<{country:any}>(); const {lang,local}=useLocale()</script>
+<template><NuxtLink :to="local(`/countries/${country.id}`)" class="catalog-card"><img :src="`/images/countries/${country.id}.svg`" width="32" height="22" loading="lazy" :alt="lang==='ru'?country.nameRu:country.nameEn"><span><b>{{lang==='ru'?country.nameRu:country.nameEn}}</b><small>{{country.phoneCode}}</small></span><i>→</i></NuxtLink></template>
