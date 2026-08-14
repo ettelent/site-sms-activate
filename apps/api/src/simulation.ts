@@ -24,9 +24,9 @@ export function simulateNumbers(country: Country, serviceList: Service[], now = 
         serviceCode: service.code,
         serviceName: service.nameEn,
         text: `${service.nameEn}: verification code ${code}. Do not share this code.`,
-        receivedAt: new Date(createdAt.getTime() + (msgIndex + 1) * 240_000 + random() * 90_000).toISOString()
+        receivedAt: new Date(now - msgIndex * 240_000 - random() * 90_000).toISOString()
       }
-    }).reverse()
+    })
     return { id, phone: `${country.phoneCode} ${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6)}`, countryId: country.id, status: random() > .22 ? 'active' : 'busy', createdAt: createdAt.toISOString(), expiresAt: expiresAt.toISOString(), messages }
   })
 }
