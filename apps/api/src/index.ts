@@ -16,7 +16,12 @@ app.use(cors({ origin: true }))
 app.use(express.json({ limit: '32kb' }))
 app.use((_req, res, next) => { res.set('Cache-Control', 'public, max-age=30, stale-while-revalidate=60'); next() })
 
-app.get('/health', (_req, res) => res.json({ status: 'ok', database: pool ? 'configured' : 'seed-fallback' }))
+app.get('/health', async (_req, res) => {
+  res.set('Cache-Control', 'no-store')
+  if (!pool) return res.json({ status: 'ok', database: 'seed-fallback' })
+  try { await pool.query('SELECT 1'); res.json({ status: 'ok', database: 'up' }) }
+  catch { res.status(503).json({ status: 'degraded', database: 'down' }) }
+})
 app.get('/catalog/countries', async (_req, res) => res.json(await countries()))
 app.get('/catalog/services', async (_req, res) => res.json(await services()))
 app.get('/catalog/countries/:id', async (req, res) => {
